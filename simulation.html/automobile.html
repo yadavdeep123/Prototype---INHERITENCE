@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOMOBILE</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Van(brand,model,speed,fuelType){
+        this.brand = brand;
+        this.model = model;
+        this.speed = speed;
+        this.fuelType = fuelType;
+    }
+
+    Van.prototype.accelerate = function(){
+        console.log(`The Van is Accelerated.`);
+    }
+    Van.prototype.brake = function(){
+        console.log(`The Van is Braking.`);
+    }
+    Van.prototype.refuel = function(){
+        console.log(`The Van is Refueling.`);
+    }
+
+    let Van1 = new Van("Maruti","Dzire",120,"Petrol")
+
+    function AUDI(brand,model,speed,fuelType,NumberOfWheels){
+        Object.create(Van);
+
+        this.NumberOfWheels = NumberOfWheels;
+    }
+
+    AUDI.prototype.honk = function(){
+        console.log(`AUDI horn is blown!`)
+    }
+
+    Object.setPrototypeOf(AUDI.prototype,Van.prototype)
+
+    let AUDI1 = new AUDI("Maruti","Dzire",120,"Petrol",4)
+
+    console.log(AUDI1);
+
+</script>
+</html>
